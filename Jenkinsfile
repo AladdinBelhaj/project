@@ -8,7 +8,13 @@ pipeline{
     stages{
         stage('Code Checkout'){
             steps{
-                git ''
+                git 'https://github.com/AladdinBelhaj/project'
+            }
+        }
+
+        stage('Deploy Docker with Docker Compose'){
+            steps{
+                sh 'docker compose up --build'
             }
         }
     }
