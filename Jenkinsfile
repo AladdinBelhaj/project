@@ -18,11 +18,11 @@ pipeline{
                 sh 'docker compose up --build'
                 
             }
+        }
             stage('Check Container Logs') {
             steps {
                 sh 'docker compose logs'  // Show logs to confirm success
             }
         }
     }
-}
 }
