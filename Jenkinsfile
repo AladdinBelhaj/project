@@ -19,10 +19,13 @@ pipeline{
                 
             }
         }
-            stage('Check Container Logs') {
-            steps {
-                sh 'docker compose logs'  // Show logs to confirm success
-            }
+    }
+        post {
+        success {
+            echo 'Build and tests succeeded!'
+        }
+        failure {
+            echo 'Build or tests failed.'
         }
     }
 }
