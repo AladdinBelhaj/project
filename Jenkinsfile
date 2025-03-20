@@ -16,7 +16,11 @@ pipeline{
         stage('Deploy Docker with Docker Compose'){
             steps{
                 sh 'docker compose up --build'
-                sh 'docker ps -a'
+                
+            }
+            stage('Check Container Logs') {
+            steps {
+                sh 'docker compose logs'  // Show logs to confirm success
             }
         }
     }
