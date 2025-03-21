@@ -3,7 +3,6 @@ pipeline{
 
     environment{
         DOCKER_IMAGE = 'first-container'
-        DOCKER_BUILDKIT = '1'
     }
 
     stages{
@@ -15,7 +14,7 @@ pipeline{
 
         stage('Deploy Docker with Docker Compose'){
             steps{
-                sh 'docker compose up --build'
+                sh 'docker build -t $DOCKER_IMAGE'
                 
             }
         }
